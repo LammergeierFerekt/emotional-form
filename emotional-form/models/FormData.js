@@ -3,7 +3,6 @@ const sanitizeHtml = require('sanitize-html');
 
 // Define the schema
 const formDataSchema = new mongoose.Schema({
-  name: { type: String, required: true, trim: true },
   email: { 
     type: String, 
     required: true, 
