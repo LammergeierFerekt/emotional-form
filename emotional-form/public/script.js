@@ -114,14 +114,27 @@ document.addEventListener('DOMContentLoaded', function () {
         q6_1.innerHTML = `
           <label for="q6_${elementNumber}_1">6.${elementNumber}.1 Ce simți înainte să te gândești la „${element}”?</label>
           <select id="q6_${elementNumber}_1" name="q6_${elementNumber}_1" required>
-            <option value="Bucurie">Bucurie</option>
-            <option value="Entuziasm">Entuziasm</option>
-            <option value="Frustrare">Frustrare</option>
-            <option value="Vinovăție">Vinovăție</option>
-            <option value="Anxietate">Anxietate</option>
-            <option value="Oboseală">Oboseală</option>
-            <option value="Recompensă">Recompensă</option>
-            <option value="Apatie">Apatie</option>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
           </select>
         `;
         dynamicQuestionsContainer.appendChild(q6_1);
@@ -132,14 +145,27 @@ document.addEventListener('DOMContentLoaded', function () {
         q6_2.innerHTML = `
           <label for="q6_${elementNumber}_2">6.${elementNumber}.2 Ce simți după ce te-ai gândit sau ai interacționat cu „${element}”?</label>
           <select id="q6_${elementNumber}_2" name="q6_${elementNumber}_2" required>
-            <option value="Bucurie">Bucurie</option>
-            <option value="Entuziasm">Entuziasm</option>
-            <option value="Frustrare">Frustrare</option>
-            <option value="Vinovăție">Vinovăție</option>
-            <option value="Anxietate">Anxietate</option>
-            <option value="Oboseală">Oboseală</option>
-            <option value="Recompensă">Recompensă</option>
-            <option value="Apatie">Apatie</option>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
           </select>
         `;
         dynamicQuestionsContainer.appendChild(q6_2);
@@ -152,14 +178,27 @@ document.addEventListener('DOMContentLoaded', function () {
         q7.innerHTML = `
           <label for="q7">7. Ce emoție generală ai când te gândești la aceste elemente împreună?</label>
           <select id="q7" name="q7" required>
-            <option value="Bucurie">Bucurie</option>
-            <option value="Entuziasm">Entuziasm</option>
-            <option value="Frustrare">Frustrare</option>
-            <option value="Vinovăție">Vinovăție</option>
-            <option value="Anxietate">Anxietate</option>
-            <option value="Oboseală">Oboseală</option>
-            <option value="Recompensă">Recompensă</option>
-            <option value="Apatie">Apatie</option>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
           </select>
         `;
         dynamicQuestionsContainer.appendChild(q7);
@@ -173,14 +212,27 @@ document.addEventListener('DOMContentLoaded', function () {
           q7_1.innerHTML = `
             <label for="q7_${i}">7.${i} Ce legătură emoțională este între „${elements[i - 1]}” și „${elements[i]}”?</label>
             <select id="q7_${i}" name="q7_${i}" required>
-              <option value="Bucurie">Bucurie</option>
+              <option value="Fericire">Fericire</option>
               <option value="Entuziasm">Entuziasm</option>
-              <option value="Frustrare">Frustrare</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
               <option value="Vinovăție">Vinovăție</option>
               <option value="Anxietate">Anxietate</option>
-              <option value="Oboseală">Oboseală</option>
-              <option value="Recompensă">Recompensă</option>
-              <option value="Apatie">Apatie</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
             </select>
           `;
           dynamicQuestionsContainer.appendChild(q7_1);
