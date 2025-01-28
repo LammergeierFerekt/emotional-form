@@ -218,3 +218,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+
+document.querySelector('form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // Collect form data
+  const formData = new FormData(e.target);
+  const jsonData = {};
+
+  formData.forEach((value, key) => {
+    jsonData[key] = value; // Add key-value pairs to JSON
+  });
+
+  // Send data to the backend
+  try {
+    const response = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(jsonData),
+    });
+
+    const result = await response.json();
+    if (response.ok) {
+      alert(result.message); // Show success message
+    } else {
+      alert('Error: ' + result.error);
+    }
+  } catch (err) {
+    console.error('Error submitting form:', err);
+  }
+});
+
+
+
+
+
+
+

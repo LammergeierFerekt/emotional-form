@@ -1,13 +1,30 @@
+require('dotenv').config();  // Load environment variables from the .env file
+
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs'); // For saving data to a file (optional)
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const formRoutes = require('./routes/formRoutes'); // Import form routes
+
 const app = express();
 const port = 3000;
 
+// Get MongoDB URI from environment variables
+const mongoURI = process.env.MONGO_URI;
+
 // Middleware
-app.use(cors()); // Allow cross-origin requests
-app.use(express.json()); // Parse JSON request bodies
-app.use(express.static('public')); // Serve static files (HTML, CSS, JS)
+app.use(bodyParser.json()); // To parse incoming JSON requests
+app.use(express.static('public')); // Serve static files from the 'public' folder
+app.use(cors()); // Enable Cross-Origin Resource Sharing if needed
+
+// MongoDB connection
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Error connecting to MongoDB:', err));
+
+// Routes
+app.use('/api', formRoutes);
 
 // Route to handle form submission
 app.post('/submit', (req, res) => {
