@@ -1,0 +1,260 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling */
+  font-family: 'Verdana', sans-serif; /* Use Verdana font */
+}
+
+
+
+
+/* Email Input Section */
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-group input[type="email"]:focus {
+  border-color: #007BFF;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+
+
+
+
+/* Front Page with SVG Mask */
+#front-page {
+  position: fixed; /* Fixed positioning to cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Ensure it's on top of everything */
+  transition: opacity 1s ease;
+}
+
+#title-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ensure it's clickable */
+  pointer-events: auto;
+}
+
+#title-svg {
+  width: 100%;
+  height: 100%;  
+  display: flex;
+  object-fit: cover; /* Ensure the SVG stretches to fill the screen */
+  justify-content: center;
+}
+
+
+
+/* Background GIF */
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('background-video.gif') no-repeat center center/cover; /* Add your GIF here */
+  z-index: -1; /* Places the GIF behind other content */
+}
+
+
+/* Form Container - Initially Hidden */
+.form-container {
+  position: relative; /* Ensure the form is positioned relative to its parent */
+  z-index: 2; /* Place the form above the video */
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto; /* Center the form */
+  font-family: 'Verdana', sans-serif; /* Use Verdana font */
+  opacity: 0; /* Initially invisible */
+  visibility: hidden; /* Hide the form initially */
+  transition: opacity 1s ease, visibility 1s ease; /* Smooth fade-in transition */
+}
+
+/* Form Container - Visible */
+.form-container.visible {
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Show the form */
+}
+
+/* Fieldset Styling */
+fieldset {
+  border: 2px solid #6a5acd; /* Violet-blue border */
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f0f8ff; /* Pale blue background for fieldsets */
+  font-family: 'Verdana', sans-serif; /* Use Verdana font */
+}
+
+/* Consistent Width for Inputs, Selects, and Textareas */
+input[type="text"],
+select,
+textarea {
+  width: 100%; /* Ensure all elements take up 100% of their container's width */
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Slightly rounded corners */
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+  font-family: 'Verdana', sans-serif; /* Use Verdana font */
+}
+
+/* Style for dropdown boxes */
+select {
+  appearance: none; /* Remove default arrow in some browsers */
+  -webkit-appearance: none; /* Remove default arrow in Safari */
+  -moz-appearance: none; /* Remove default arrow in Firefox */
+}
+
+/* Add a custom arrow for the dropdown */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Ensure clicks go to the select element */
+  color: #666;
+}
+
+/* Legend Styling */
+legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #6a5acd; /* Violet-blue text for legends */
+  padding: 0 10px;
+  font-family: 'Verdana', sans-serif; /* Use Verdana font */
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Label Styling */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #2e2429; /* Dark violet-blue text for labels */
+  font-family: 'Verdana', sans-serif; /* Use Verdana font */
+}
+
+/* Textarea Styling */
+textarea {
+  resize: none; /* Disables resizing */
+  min-height: 100px; /* Sets a minimum height for textareas */
+}
+
+/* Focus States */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: #6a5acd; /* Violet-blue border on focus */
+  box-shadow: 0 0 5px rgba(106, 90, 205, 0.5); /* Add a subtle shadow on focus */
+}
+
+/* Class for dynamic background and text color */
+.filled {
+  background-color: #4f374c; /* Turquoise background */
+  color: white; /* White text */
+}
+
+/* Button Styling */
+button {
+  background-color: #6a5acd; /* Violet-blue background for buttons */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  font-family: 'Verdana', sans-serif; /* Use Verdana font */
+}
+
+button:hover {
+  background-color: #6993ef; /* Darker violet-blue on hover */
+}
+
+/* Navigation Buttons Styling */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.navigation-buttons button {
+  width: 120px;
+}
+
+/* Previous Button Styling */
+#previousBtn {
+  background-color: #6993ef; /* Turquoise background for "Previous" button */
+}
+
+#previousBtn:hover {
+  background-color: #6993ef; /* Darker turquoise on hover */
+}
+
+/* Submit Button Styling */
+#submitBtn {
+  background-color: #6a5acd; /* Violet-blue background for "Submit" button */
+}
+
+#submitBtn:hover {
+  background-color: #6993ef; /* Darker violet-blue on hover */
+}
+
+
+.dynamic-questions-container {
+  max-height: 900px; /* Adjust this value as needed */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  padding: 10px;
+  margin-top: 10px;
+}
+
+

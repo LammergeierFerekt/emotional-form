@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emotional Routine Identification Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+ <!-- Front Page with SVG Mask -->
+ <div id="front-page">
+  <div id="title-mask">
+    <!-- Use the SVG file as a mask -->
+    <img src="MASCA titlu emotional-form.svg" alt="Title-Mask" id="title-svg" />
+  </div>
+</div>
+
+<!-- Background GIF -->
+<div id="background-video"></div>
+
+
+<!--#region Form Container -->
+
+  <div class="form-container">
+    <form id="emotionalForm">
+
+      <!--Email / name imput-->
+      <fieldset>
+        <div class="form-group">
+          <label for="email">Introdu adresa de mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </fieldset>
+
+
+<!-- #region Section 1 -->
+      <fieldset id="section1">
+        <legend>SECTION 1: Identificarea rutinei emoționale</legend>
+       <!-- Question 1 -->
+        <div class="form-group">
+          <label for="q1">1. Când consumi cel mai frecvent zahăr?</label>
+          <select id="q1" name="q1" required>
+            <option value="Dimineața">Dimineața</option>
+            <option value="După-amiaza">După-amiaza</option>
+            <option value="Seara">Seara</option>
+            <option value="În timpul nopții">În timpul nopții</option>
+          </select>
+        </div>
+
+        <!-- Question 1.1 -->
+        <div class="form-group">
+          <label for="q1_1">1.1 Cât de tare simți nevoia de zahăr dimineața?</label>
+          <select id="q1_1" name="q1_1" required>
+            <option value="Super tare">Super tare</option>
+            <option value="Tare">Tare</option>
+            <option value="Uneori">Uneori</option>
+            <option value="Neutru">Neutru</option>
+            <option value="Nu prea">Nu prea</option>
+            <option value="Deloc">Deloc</option>
+          </select>
+        </div>
+
+        <!-- Question 1.2 -->
+        <div class="form-group">
+          <label for="q1_2">1.2 Cât de tare simți nevoia de zahăr după-amiaza?</label>
+          <select id="q1_2" name="q1_2" required>
+            <option value="Super tare">Super tare</option>
+            <option value="Tare">Tare</option>
+            <option value="Uneori">Uneori</option>
+            <option value="Neutru">Neutru</option>
+            <option value="Nu prea">Nu prea</option>
+            <option value="Deloc">Deloc</option>
+          </select>
+        </div>
+
+        <!-- Question 1.3 -->
+        <div class="form-group">
+          <label for="q1_3">1.3 Cât de tare simți nevoia de zahăr seara?</label>
+          <select id="q1_3" name="q1_3" required>
+            <option value="Super tare">Super tare</option>
+            <option value="Tare">Tare</option>
+            <option value="Uneori">Uneori</option>
+            <option value="Neutru">Neutru</option>
+            <option value="Nu prea">Nu prea</option>
+            <option value="Deloc">Deloc</option>
+          </select>
+        </div>
+
+        <!-- Question 1.4 -->
+        <div class="form-group">
+          <label for="q1_4">1.4 Cât de tare simți nevoia de zahăr în timpul nopții?</label>
+          <select id="q1_4" name="q1_4" required>
+            <option value="Super tare">Super tare</option>
+            <option value="Tare">Tare</option>
+            <option value="Uneori">Uneori</option>
+            <option value="Neutru">Neutru</option>
+            <option value="Nu prea">Nu prea</option>
+            <option value="Deloc">Deloc</option>
+          </select>
+        </div>
+      </fieldset>
+<!-- #endregion Section 1 -->
+
+<!-- #region Section 2 -->
+      <fieldset id="section2" style="display: none;">
+        <legend>SECTION 2: Context emoțional și social</legend>
+           <!-- Question 2.1 -->
+          <div class="form-group">
+            <label for="q2_1">2.1 Dimineața: La ce te duce cu gândul dimineața?</label>
+            <input type="text" id="q2_1" name="q2_1" required>
+          </div>
+
+          <!-- Question 2.2 -->
+          <div class="form-group">
+            <label for="q2_2">2.2 După-amiaza: Cu ce asociezi după-amiaza?</label>
+            <input type="text" id="q2_2" name="q2_2" required>
+          </div>
+
+          <!-- Question 2.3 -->
+          <div class="form-group">
+            <label for="q2_3">2.3 Seara: Ce îți amintește seara?</label>
+            <input type="text" id="q2_3" name="q2_3" required>
+          </div>
+
+          <!-- Question 2.4 -->
+          <div class="form-group">
+            <label for="q2_4">2.4 În timpul nopții: Ce asocieri ai cu timpul nopții?</label>
+            <input type="text" id="q2_4" name="q2_4" required>
+          </div>
+      </fieldset>
+<!-- #endregion Section 2 -->
+
+<!-- #region Section 3 -->
+      <fieldset id="section3" style="display: none;">
+        <legend>SECTION 3: Alte întrebări</legend>
+          <!-- Question 3 -->
+          <div class="form-group">
+            <label for="q3">3. Ce emoții simți înainte de a consuma zahăr?</label>
+            <select id="q3" name="q3" required>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
+            </select>
+          </div>
+
+          <!-- Question 3.1 -->
+          <div class="form-group">
+            <label for="q3_1">3.1 Ce emoții simți înainte de a consuma zahăr dimineața?</label>
+            <select id="q3_1" name="q3_1" required>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
+            </select>
+          </div>
+
+          <!-- Question 3.2 -->
+          <div class="form-group">
+            <label for="q3_2">3.2 Ce emoții simți înainte de a consuma zahăr după-amiaza?</label>
+            <select id="q3_2" name="q3_2" required>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
+            </select>
+          </div>
+
+          <!-- Question 3.3 -->
+          <div class="form-group">
+            <label for="q3_3">3.3 Ce emoții simți înainte de a consuma zahăr seara?</label>
+            <select id="q3_3" name="q3_3" required>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
+            </select>
+          </div>
+
+          <!-- Question 3.4 -->
+          <div class="form-group">
+            <label for="q3_4">3.4 Ce emoții simți înainte de a consuma zahăr în timpul nopții?</label>
+            <select id="q3_4" name="q3_4" required>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
+            </select>
+          </div>
+      </fieldset>
+<!-- #endregion Section 3 -->
+
+<!-- #region Section 4 -->
+      <fieldset id="section4" style="display: none;">
+        <legend>SECTION 4: Context social</legend>
+          <!-- Question 4.1 -->
+          <div class="form-group">
+            <label for="q4_1">4.1 Ce emoții simți după ce consumi zahăr?</label>
+            <select id="q4_1" name="q4_1" required>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
+            </select>
+          </div>
+
+          <!-- Question 4.2 -->
+          <div class="form-group">
+            <label for="q4_2">4.2 Ce îți vine să faci, de obicei, după ce ai consumat zahăr?</label>
+            <select id="q4_2" name="q4_2" required>
+              <option value="Să mă conectez cu sinele (hobby, introspectie)">Să mă conectez cu sinele (hobby, introspectie)</option>
+              <option value="Să mă conectez cu cei din jur (familia, prieteni, clienti, pacienti)">Să mă conectez cu cei din jur (familia, prieteni, clienti, pacienti)</option>
+              <option value="Să fac ceva productiv (locul de munca, gospodarie, invatat)">Să fac ceva productiv (locul de munca, gospodarie, invatat)</option>
+              <option value="Să mai consum ceva dulce sau sa ma distrag cu ceva (reels, film, mancare, muzica, citit)">Să mai consum ceva dulce sau sa ma distrag cu ceva (reels, film, mancare, muzica, citit)</option>
+            </select>
+          </div>
+
+          <!-- Question 4.3 -->
+          <div class="form-group">
+            <label for="q4_3">4.3 Zahărul este pentru tine o recompensă personală?</label>
+            <select id="q4_3" name="q4_3" required>
+              <option value="Super tare">Super tare</option>
+              <option value="Tare">Tare</option>
+              <option value="Uneori">Uneori</option>
+              <option value="Neutru">Neutru</option>
+              <option value="Nu prea">Nu prea</option>
+              <option value="Deloc">Deloc</option>
+            </select>
+          </div>
+
+          <!-- Question 4.4 -->
+          <div class="form-group">
+            <label for="q4_4">4.4 Ce emoții îți apar cel mai des când ești singur(ă)?</label>
+            <select id="q4_4" name="q4_4" required>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
+            </select>
+          </div>
+
+          <!-- Question 4.5 -->
+          <div class="form-group">
+            <label for="q4_5">4.5 După interacțiuni cu familia, simți nevoia de zahăr?</label>
+            <select id="q4_5" name="q4_5" required>
+              <option value="Super tare">Super tare</option>
+              <option value="Tare">Tare</option>
+              <option value="Uneori">Uneori</option>
+              <option value="Neutru">Neutru</option>
+              <option value="Nu prea">Nu prea</option>
+              <option value="Deloc">Deloc</option>
+            </select>
+          </div>
+
+          <!-- Question 4.6 -->
+          <div class="form-group">
+            <label for="q4_6">4.6 Ce emoții simți legate de interacțiunea cu familia?</label>
+            <select id="q4_6" name="q4_6" required>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
+            </select>
+          </div>
+
+          <!-- Question 4.7 -->
+          <div class="form-group">
+            <label for="q4_7">4.7 Simți că locul de muncă îți declanșează nevoia de zahăr?</label>
+            <select id="q4_7" name="q4_7" required>
+              <option value="Super tare">Super tare</option>
+              <option value="Tare">Tare</option>
+              <option value="Uneori">Uneori</option>
+              <option value="Neutru">Neutru</option>
+              <option value="Nu prea">Nu prea</option>
+              <option value="Deloc">Deloc</option>
+            </select>
+          </div>
+
+          <!-- Question 4.8 -->
+          <div class="form-group">
+            <label for="q4_8">4.8 Ce emoții simți legate de locul de muncă?</label>
+            <select id="q4_8" name="q4_8" required>
+              <option value="Fericire">Fericire</option>
+              <option value="Entuziasm">Entuziasm</option>
+              <option value="Calm">Calm</option>
+              <option value="Mulțumire">Mulțumire</option>
+              <option value="Iubire">Iubire</option>
+              <option value="Speranță">Speranță</option>
+              <option value="Seninătate">Seninătate</option>
+              <option value="Neutralitate">Neutralitate</option>
+              <option value="Curiozitate">Curiozitate</option>
+              <option value="Tristețe">Tristețe</option>
+              <option value="Frică">Frică</option>
+              <option value="Furie">Furie</option>
+              <option value="Invidie">Invidie</option>
+              <option value="Singurătate">Singurătate</option>
+              <option value="Vinovăție">Vinovăție</option>
+              <option value="Anxietate">Anxietate</option>
+              <option value="Amărăciune">Amărăciune</option>
+              <option value="Nostalgie">Nostalgie</option>
+              <option value="Confuzie">Confuzie</option>
+              <option value="Empatie">Empatie</option>
+              <option value="Surpriză">Surpriză</option>
+            </select>
+          </div>
+      </fieldset>
+<!-- #endregion Section 4 -->
+
+<!-- #region Section 5 -->
+          <fieldset id="section5" style="display: none;">
+            <legend>SECTION 5: Memorii</legend>
+            <!-- Question 5 -->
+            <div class="form-group">
+              <label for="q5">5. Care este cea mai vividă memorie strâns legată de dulce?</label>
+              <textarea id="q5" name="q5" rows="4" required></textarea>
+            </div>
+
+            <!-- Question 5.1 -->
+            <div class="form-group">
+              <label for="q5_1">5.1 Ce simți când îți amintești de această memorie?</label>
+              <select id="q5_1" name="q5_1" required>
+                <option value="Fericire">Fericire</option>
+                <option value="Entuziasm">Entuziasm</option>
+                <option value="Calm">Calm</option>
+                <option value="Mulțumire">Mulțumire</option>
+                <option value="Iubire">Iubire</option>
+                <option value="Speranță">Speranță</option>
+                <option value="Seninătate">Seninătate</option>
+                <option value="Neutralitate">Neutralitate</option>
+                <option value="Curiozitate">Curiozitate</option>
+                <option value="Tristețe">Tristețe</option>
+                <option value="Frică">Frică</option>
+                <option value="Furie">Furie</option>
+                <option value="Invidie">Invidie</option>
+                <option value="Singurătate">Singurătate</option>
+                <option value="Vinovăție">Vinovăție</option>
+                <option value="Anxietate">Anxietate</option>
+                <option value="Amărăciune">Amărăciune</option>
+                <option value="Nostalgie">Nostalgie</option>
+                <option value="Confuzie">Confuzie</option>
+                <option value="Empatie">Empatie</option>
+                <option value="Surpriză">Surpriză</option>
+              </select>
+            </div>
+
+            <!-- Question 5.2 -->
+            <div class="form-group">
+              <label for="q5_2">5.2 Când se întâmplă să îți amintești de această memorie?</label>
+              <select id="q5_2" name="q5_2" required>
+                <option value="Cand mă conectez cu sinele (hobby, introspectie)">Cand mă conectez cu sinele (hobby, introspectie)</option>
+                <option value="Cand mă conectez cu cei din jur (familia, prieteni, clienti, pacienti)">Cand mă conectez cu cei din jur (familia, prieteni, clienti, pacienti)</option>
+                <option value="Cand fac ceva productiv (locul de munca, gospodarie, invatat)">Cand fac ceva productiv (locul de munca, gospodarie, invatat)</option>
+                <option value="Cand ma distrag cu ceva (reels, film, mancare, muzica, citit)">Cand ma distrag cu ceva (reels, film, mancare, muzica, citit)</option>
+              </select>
+            </div>
+
+            <!-- Question 5.3 -->
+            <div class="form-group">
+              <label for="q5_3">5.3 Ce simți înainte să îți amintești de această memorie?</label>
+              <select id="q5_3" name="q5_3" required>
+                <option value="Fericire">Fericire</option>
+                <option value="Entuziasm">Entuziasm</option>
+                <option value="Calm">Calm</option>
+                <option value="Mulțumire">Mulțumire</option>
+                <option value="Iubire">Iubire</option>
+                <option value="Speranță">Speranță</option>
+                <option value="Seninătate">Seninătate</option>
+                <option value="Neutralitate">Neutralitate</option>
+                <option value="Curiozitate">Curiozitate</option>
+                <option value="Tristețe">Tristețe</option>
+                <option value="Frică">Frică</option>
+                <option value="Furie">Furie</option>
+                <option value="Invidie">Invidie</option>
+                <option value="Singurătate">Singurătate</option>
+                <option value="Vinovăție">Vinovăție</option>
+                <option value="Anxietate">Anxietate</option>
+                <option value="Amărăciune">Amărăciune</option>
+                <option value="Nostalgie">Nostalgie</option>
+                <option value="Confuzie">Confuzie</option>
+                <option value="Empatie">Empatie</option>
+                <option value="Surpriză">Surpriză</option>
+              </select>
+            </div>
+
+            <!-- Question 5.4 -->
+            <div class="form-group">
+              <label for="q5_4">5.4 Ce simți după ce retrăiești această memorie?</label>
+              <select id="q5_4" name="q5_4" required>
+                <option value="Fericire">Fericire</option>
+                <option value="Entuziasm">Entuziasm</option>
+                <option value="Calm">Calm</option>
+                <option value="Mulțumire">Mulțumire</option>
+                <option value="Iubire">Iubire</option>
+                <option value="Speranță">Speranță</option>
+                <option value="Seninătate">Seninătate</option>
+                <option value="Neutralitate">Neutralitate</option>
+                <option value="Curiozitate">Curiozitate</option>
+                <option value="Tristețe">Tristețe</option>
+                <option value="Frică">Frică</option>
+                <option value="Furie">Furie</option>
+                <option value="Invidie">Invidie</option>
+                <option value="Singurătate">Singurătate</option>
+                <option value="Vinovăție">Vinovăție</option>
+                <option value="Anxietate">Anxietate</option>
+                <option value="Amărăciune">Amărăciune</option>
+                <option value="Nostalgie">Nostalgie</option>
+                <option value="Confuzie">Confuzie</option>
+                <option value="Empatie">Empatie</option>
+                <option value="Surpriză">Surpriză</option>
+              </select>
+            </div>
+
+      </fieldset>
+<!-- #endregion Section 5 -->
+
+<!-- #region Section 6 -->
+      <fieldset id="section6" style="display: none;">
+        <legend>SECTION 6: Elemente importante </legend>
+        <div class="form-group">
+          <label for="q6">6. Care sunt cele mai puternice elemente din viața ta pe care le resimți zilnic? (maxim 5 elemente separate prin virgulă)</label>
+          <input type="text" id="q6" name="q6" required>
+        </div>
+      </fieldset>
+
+          <fieldset id="section6" style="display: none;">
+            <legend>SECTION 6:Legaturi emotionale intre elemente importante</legend>
+            <div id="dynamic-questions" class="dynamic-questions-container">
+            </div>
+          </fieldset>
+ <!-- #endregion Section 6 -->
+
+
+<!-- #endregion Form Container -->
+
+<!-- #region Navigation Buttons -->
+      <div class="navigation-buttons">
+        <button type="button" id="previousBtn" style="display: none;">Previous</button>
+        <button type="button" id="nextBtn">Next</button>
+        <button type="submit" id="submitBtn" style="display: none;">Submit</button>
+           <div id="submit-error-message" style="display: none; color: rgb(106, 84, 171); font-size: 14px; margin-top: 10px;">
+            Te rog completează toate casetele de text inainte de a da submit - da click previous pentru a verifica 
+          </div>
+      </div>
+    </form>
+<!-- #endregion Navigation Buttons -->
+
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
