@@ -2,9 +2,6 @@ const fs = require("fs");
 const path = require("path");
 
 const FormDataModel = require("../models/FormData");
-const FormDataGraph = require("../utils/FormDataGraph");
-const { radiusRules } = require("../utils/emotionRules");
-const { graphToCsvString } = require("../utils/csv");
 
 // Helper: read JSON safely
 function readJsonArray(filePath) {
@@ -60,7 +57,8 @@ async function submitForm(req, res) {
   }
 }
 
-// GET /export-csv  -> exports latest submission as question/answer rows
+// GET /export-csv -> exports latest submission as question/answer rows
+// Special rule: q6 is split by commas into answer, answer_2, answer_3...
 async function exportCsv(req, res) {
   const filePath = path.join(__dirname, "..", "formData.json");
 
@@ -79,44 +77,71 @@ async function exportCsv(req, res) {
       return res.status(404).json({ error: "No submissions found to export." });
     }
 
-    // ✅ Export the most recent submission
+    // Export the most recent submission
     const latest = all[all.length - 1];
 
-    // Flatten to rows: [{question, answer}, ...]
+    // Build rows with multi-column answers for q6
+    const MAX_SPLIT = 10; // change to 5 if you want exactly 5 columns for q6
     const rows = [];
+
     for (const [key, value] of Object.entries(latest)) {
       if (key === "_id" || key === "__v") continue;
       if (key === "createdAt" || key === "updatedAt") continue;
 
-      // If something is an object/map, stringify it
-      const answer =
+      // Default: single answer
+      let parts = [
         value === null || value === undefined
           ? ""
           : typeof value === "object"
             ? JSON.stringify(value)
-            : String(value);
+            : String(value),
+      ];
 
-      rows.push({ question: key, answer });
+      // Special: q6 split by comma into multiple columns
+      if (key === "q6" && typeof value === "string") {
+        parts = value
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean)
+          .slice(0, MAX_SPLIT);
+
+        if (parts.length === 0) parts = [""];
+      }
+
+      const row = { question: key };
+      for (let i = 0; i < MAX_SPLIT; i++) {
+        const colName = i === 0 ? "answer" : `answer_${i + 1}`;
+        row[colName] = parts[i] ?? "";
+      }
+
+      rows.push(row);
     }
 
-    // Build CSV manually (simple + safe enough here)
-    // Escape quotes and commas
+    // Headers: question, answer, answer_2 ... answer_10
+    const headers = [
+      "question",
+      "answer",
+      ...Array.from({ length: MAX_SPLIT - 1 }, (_, i) => `answer_${i + 2}`),
+    ];
+
+    // CSV escape (quotes-safe + Excel-safe)
     const escape = (s) => `"${String(s).replace(/"/g, '""')}"`;
+
     const csv =
-      ["question,answer"]
-        .concat(rows.map((r) => `${escape(r.question)},${escape(r.answer)}`))
+      [headers.join(",")]
+        .concat(rows.map((r) => headers.map((h) => escape(r[h] ?? "")).join(",")))
         .join("\n");
 
     res.setHeader("Content-Type", "text/csv; charset=utf-8");
     res.setHeader("Content-Disposition", 'attachment; filename="form_answers.csv"');
+
+    // Excel UTF-8 fix (BOM)
     const bom = "\uFEFF";
     return res.status(200).send(bom + csv);
-
   } catch (err) {
     console.error("exportCsv error:", err);
     return res.status(500).json({ error: "Failed to export CSV." });
   }
 }
-
 
 module.exports = { submitForm, exportCsv };
