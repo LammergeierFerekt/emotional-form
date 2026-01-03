@@ -25,6 +25,74 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+// #region HydrateStaticSelects
+  function fillSelect(selectEl, options, { placeholder = "Selectează..." } = {}) {
+    if (!selectEl) return;
+
+    selectEl.innerHTML = "";
+
+    // Optional placeholder (disabled + selected)
+    const ph = document.createElement("option");
+    ph.value = "";
+    ph.textContent = placeholder;
+    ph.disabled = true;
+    ph.selected = true;
+    selectEl.appendChild(ph);
+
+    for (const opt of options) {
+      const o = document.createElement("option");
+      o.value = opt;
+      o.textContent = opt;
+      selectEl.appendChild(o);
+    }
+  }
+
+  function hydrateStaticSelects() {
+    const dict = window.FORM_OPTIONS || {};
+    document.querySelectorAll("select[data-options]").forEach((sel) => {
+      const key = sel.getAttribute("data-options");
+      const options = dict[key];
+      if (!Array.isArray(options)) {
+        console.warn(`Missing FORM_OPTIONS key: ${key}`);
+        return;
+      }
+      fillSelect(sel, options);
+    });
+  }
+
+  hydrateStaticSelects();
+// #endregion HydrateStaticSelects
+
+
+// #region Addiction word setter
+
+// =========================
+// Addiction word binding
+// =========================
+const addictionInput = document.getElementById("q0_addiction");
+const addictionTargets = document.querySelectorAll(".addiction-word");
+
+function updateAddictionWord() {
+  const value = addictionInput.value.trim() || "zahăr";
+  addictionTargets.forEach(el => {
+    el.textContent = value;
+  });
+}
+
+if (addictionInput) {
+  // update in real time
+  addictionInput.addEventListener("input", updateAddictionWord);
+
+  // initial sync on load
+  updateAddictionWord();
+}
+
+
+// #endregion Addiction word setter
+
+
+
+
   // =========================
   // Form Navigation + Submission Logic
   // =========================
@@ -120,10 +188,33 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =========================
-  // Dynamic Questions Logic (Question 6)
-  // =========================
+
+
+  // #region Dynamic Questions Logic (Question 6)
   const q6Input = document.getElementById("q6");
   const dynamicQuestionsContainer = document.getElementById("dynamic-questions");
+
+  function createLabeledSelect({ id, name, labelText, optionsKey }) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "form-group";
+
+    const label = document.createElement("label");
+    label.setAttribute("for", id);
+    label.textContent = labelText;
+
+    const select = document.createElement("select");
+    select.id = id;
+    select.name = name;
+    select.required = true;
+
+    const dict = window.FORM_OPTIONS || {};
+    const options = dict[optionsKey] || [];
+    fillSelect(select, options);
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+    return wrapper;
+  }
 
   if (q6Input && dynamicQuestionsContainer) {
     q6Input.addEventListener("input", function () {
@@ -132,91 +223,46 @@ document.addEventListener("DOMContentLoaded", function () {
       const elements = q6Input.value
         .split(",")
         .map((item) => item.trim())
-        .filter((item) => item !== "");
+        .filter(Boolean)
+        .slice(0, 5);
 
-      elements.slice(0, 5).forEach((element, index) => {
-        const elementNumber = index + 1;
+      elements.forEach((element, index) => {
+        const n = index + 1;
 
-        const q6_1 = document.createElement("div");
-        q6_1.className = "form-group";
-        q6_1.innerHTML = `
-          <label for="q6_${elementNumber}_1">6.${elementNumber}.1 Ce simți înainte să te gândești la „${element}”?</label>
-          <select id="q6_${elementNumber}_1" name="q6_${elementNumber}_1" required>
-            <option value="Fericire">Fericire</option>
-            <option value="Entuziasm">Entuziasm</option>
-            <option value="Calm">Calm</option>
-            <option value="Mulțumire">Mulțumire</option>
-            <option value="Iubire">Iubire</option>
-            <option value="Speranță">Speranță</option>
-            <option value="Seninătate">Seninătate</option>
-            <option value="Neutralitate">Neutralitate</option>
-            <option value="Curiozitate">Curiozitate</option>
-            <option value="Tristețe">Tristețe</option>
-            <option value="Frică">Frică</option>
-            <option value="Furie">Furie</option>
-            <option value="Invidie">Invidie</option>
-            <option value="Singurătate">Singurătate</option>
-            <option value="Vinovăție">Vinovăție</option>
-            <option value="Anxietate">Anxietate</option>
-            <option value="Amărăciune">Amărăciune</option>
-            <option value="Nostalgie">Nostalgie</option>
-            <option value="Confuzie">Confuzie</option>
-            <option value="Empatie">Empatie</option>
-            <option value="Surpriză">Surpriză</option>
-          </select>
-        `;
-        dynamicQuestionsContainer.appendChild(q6_1);
+        dynamicQuestionsContainer.appendChild(
+          createLabeledSelect({
+            id: `q6_${n}_1`,
+            name: `q6_${n}_1`,
+            labelText: `6.${n}.1 Ce simți înainte să te gândești la „${element}”?`,
+            optionsKey: "EMOTIONS",
+          })
+        );
 
-        const q6_2 = document.createElement("div");
-        q6_2.className = "form-group";
-        q6_2.innerHTML = `
-          <label for="q6_${elementNumber}_2">6.${elementNumber}.2 Ce simți după ce te-ai gândit sau ai interacționat cu „${element}”?</label>
-          <select id="q6_${elementNumber}_2" name="q6_${elementNumber}_2" required>
-            <option value="Fericire">Fericire</option>
-            <option value="Entuziasm">Entuziasm</option>
-            <option value="Calm">Calm</option>
-            <option value="Mulțumire">Mulțumire</option>
-            <option value="Iubire">Iubire</option>
-            <option value="Speranță">Speranță</option>
-            <option value="Seninătate">Seninătate</option>
-            <option value="Neutralitate">Neutralitate</option>
-            <option value="Curiozitate">Curiozitate</option>
-            <option value="Tristețe">Tristețe</option>
-            <option value="Frică">Frică</option>
-            <option value="Furie">Furie</option>
-            <option value="Invidie">Invidie</option>
-            <option value="Singurătate">Singurătate</option>
-            <option value="Vinovăție">Vinovăție</option>
-            <option value="Anxietate">Anxietate</option>
-            <option value="Amărăciune">Amărăciune</option>
-            <option value="Nostalgie">Nostalgie</option>
-            <option value="Confuzie">Confuzie</option>
-            <option value="Empatie">Empatie</option>
-            <option value="Surpriză">Surpriză</option>
-          </select>
-        `;
-        dynamicQuestionsContainer.appendChild(q6_2);
+        dynamicQuestionsContainer.appendChild(
+          createLabeledSelect({
+            id: `q6_${n}_2`,
+            name: `q6_${n}_2`,
+            labelText: `6.${n}.2 Ce simți după ce te-ai gândit sau ai interacționat cu „${element}”?`,
+            optionsKey: "EMOTIONS",
+          })
+        );
 
-        const q6_3 = document.createElement("div");
-        q6_3.className = "form-group";
-        q6_3.innerHTML = `
-          <label for="q6_${elementNumber}_3">6.${elementNumber}.3 Cât de des resimți prezența conceptului de „${element}” în general?</label>
-          <select id="q6_${elementNumber}_3" name="q6_${elementNumber}_3" required>
-            <option value="Super tare">Super tare</option>
-            <option value="Tare">Tare</option>
-            <option value="Uneori">Uneori</option>
-            <option value="Neutru">Neutru</option>
-            <option value="Nu prea">Nu prea</option>
-            <option value="Deloc">Deloc</option>
-          </select>
-        `;
-        dynamicQuestionsContainer.appendChild(q6_3);
+        dynamicQuestionsContainer.appendChild(
+          createLabeledSelect({
+            id: `q6_${n}_3`,
+            name: `q6_${n}_3`,
+            labelText: `6.${n}.3 Cât de des resimți prezența conceptului de „${element}” în general?`,
+            optionsKey: "INTENSITY",
+          })
+        );
       });
 
       dynamicQuestionsContainer.style.minHeight = `${dynamicQuestionsContainer.scrollHeight}px`;
       dynamicQuestionsContainer.scrollTop = dynamicQuestionsContainer.scrollHeight;
     });
   }
+  // #endregion
+
 
   // =========================
   // Input Field Styling Logic
