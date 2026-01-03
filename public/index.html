@@ -30,6 +30,8 @@
         <div class="form-group">
           <label for="email">Introdu adresa de mail</label>
           <input type="email" id="email" name="email" required>
+            <label for="name">Nume</label>
+          <input type="text" id="name" name="name" required>
         </div>
       </fieldset>
 
@@ -574,12 +576,16 @@
         <button type="button" id="previousBtn" style="display: none;">Previous</button>
         <button type="button" id="nextBtn">Next</button>
         <button type="submit" id="submitBtn" style="display: none;">Submit</button>
-           <div id="submit-error-message" style="display: none; color: rgb(106, 84, 171); font-size: 14px; margin-top: 10px;">
+        <button type="button" id="exportBtn" style="display:none;">Export CSV</button>
+           
+            <div id="submit-error-message" style="display: none; color: rgb(106, 84, 171); font-size: 14px; margin-top: 10px;">
             Te rog completează toate casetele de text inainte de a da submit - da click previous pentru a verifica 
           </div>
       </div>
-    </form>
 <!-- #endregion Navigation Buttons -->
+
+    </form>
+
 
 
   </div>
