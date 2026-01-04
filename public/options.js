@@ -27,7 +27,7 @@ window.FORM_OPTIONS = {
     "Nostalgie",
     "Confuzie",
     "Empatie",
-    "Surpriză",
+    "Surprins/ă",
   ],
 
   POST_ACTIONS: [
