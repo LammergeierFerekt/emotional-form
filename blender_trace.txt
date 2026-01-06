@@ -1,0 +1,141 @@
+FORM → CONNECTION TRACE
+
+[SECTION 1] 1.3 Cât de tare simți nevoia de telefon seara?
+  key: q1_3
+  answer: "Uneori"
+  generated: telefon RED→ relaxare
+
+[SECTION 3] 3. Ce emoții simți înainte de a consuma telefon?
+  key: q3
+  answer: "Seninătate"
+  generated: telefon GREEN→ motiv-priori
+
+[SECTION 3] 3.1 Ce emoții simți înainte de a consuma telefon dimineața?
+  key: q3_1
+  answer: "Seninătate"
+  generated: motiv-priori GREEN→ griji
+
+[SECTION 3] 3.2 Ce emoții simți înainte de a consuma telefon după-amiaza?
+  key: q3_2
+  answer: "Confuzie"
+  generated: motiv-priori RED→ deadline
+
+[SECTION 3] 3.3 Ce emoții simți înainte de a consuma telefon seara?
+  key: q3_3
+  answer: "Curiozitate"
+  generated: motiv-priori GREEN→ relaxare
+
+[SECTION 3] 3.4 Ce emoții simți înainte de a consuma telefon în timpul nopții?
+  key: q3_4
+  answer: "Speranță"
+  generated: motiv-priori GREEN→ liniște
+
+[SECTION 4] 4.1 Ce emoții simți după ce consumi telefon?
+  key: q4_1
+  answer: "Seninătate"
+  generated: telefon GREEN→ recompensa
+
+[SECTION 4] 4.4 Ce emoții îți apar cel mai des când ești singur(ă)?
+  key: q4_4
+  answer: "Seninătate"
+  generated: recompensa NEUTRAL→ sinele
+
+[SECTION 4] 4.5 După interacțiuni cu familia, simți nevoia de telefon?
+  key: q4_5
+  answer: "Uneori"
+  generated: familia RED→ telefon
+
+[SECTION 4] 4.7 Simți că locul de muncă îți declanșează nevoia de telefon?
+  key: q4_7
+  answer: "Tare"
+  generated: loc-de-munca RED→ telefon
+
+[SECTION 5] 5.3 Ce simți după ce retrăiești această memorie?
+  key: q5_3
+  answer: "Anxietate"
+  generated: Prăjitura-din-copilărie-duminică-la-bunici RED→ telefon
+
+[SECTION 5] 5.1 Vezi pe cineva necunoscut care trăiește acea memorie acum. Ce simți față de acea persoană?
+  key: q5_1
+  answer: "Singurătate"
+  generated: Prăjitura-din-copilărie-duminică-la-bunici RED→ sinele
+
+[SECTION 6] 6.1.1 Ce simți înainte să te gândești la „a”?
+  key: q6_1_1
+  answer: "Frică"
+  generated: a RED→ b
+
+[SECTION 6] 6.1.1 Ce simți înainte să te gândești la „a”?
+  key: q6_1_1
+  answer: "Frică"
+  generated: a RED→ c
+
+[SECTION 6] 6.1.1 Ce simți înainte să te gândești la „a”?
+  key: q6_1_1
+  answer: "Frică"
+  generated: a RED→ d
+
+[SECTION 6] 6.1.1 Ce simți înainte să te gândești la „a”?
+  key: q6_1_1
+  answer: "Frică"
+  generated: a RED→ e
+
+[SECTION 6] 6.3.1 Ce simți înainte să te gândești la „c”?
+  key: q6_3_1
+  answer: "Vinovăție"
+  generated: c RED→ a
+
+[SECTION 6] 6.3.1 Ce simți înainte să te gândești la „c”?
+  key: q6_3_1
+  answer: "Vinovăție"
+  generated: c RED→ b
+
+[SECTION 6] 6.3.1 Ce simți înainte să te gândești la „c”?
+  key: q6_3_1
+  answer: "Vinovăție"
+  generated: c RED→ d
+
+[SECTION 6] 6.3.1 Ce simți înainte să te gândești la „c”?
+  key: q6_3_1
+  answer: "Vinovăție"
+  generated: c RED→ e
+
+[SECTION 6] 6.4.1 Ce simți înainte să te gândești la „d”?
+  key: q6_4_1
+  answer: "Anxietate"
+  generated: d RED→ a
+
+[SECTION 6] 6.4.1 Ce simți înainte să te gândești la „d”?
+  key: q6_4_1
+  answer: "Anxietate"
+  generated: d RED→ b
+
+[SECTION 6] 6.4.1 Ce simți înainte să te gândești la „d”?
+  key: q6_4_1
+  answer: "Anxietate"
+  generated: d RED→ c
+
+[SECTION 6] 6.4.1 Ce simți înainte să te gândești la „d”?
+  key: q6_4_1
+  answer: "Anxietate"
+  generated: d RED→ e
+
+[SECTION 6] 6.5.1 Ce simți înainte să te gândești la „e”?
+  key: q6_5_1
+  answer: "Vinovăție"
+  generated: e RED→ a
+
+[SECTION 6] 6.5.1 Ce simți înainte să te gândești la „e”?
+  key: q6_5_1
+  answer: "Vinovăție"
+  generated: e RED→ b
+
+[SECTION 6] 6.5.1 Ce simți înainte să te gândești la „e”?
+  key: q6_5_1
+  answer: "Vinovăție"
+  generated: e RED→ c
+
+[SECTION 6] 6.5.1 Ce simți înainte să te gândești la „e”?
+  key: q6_5_1
+  answer: "Vinovăție"
+  generated: e RED→ d

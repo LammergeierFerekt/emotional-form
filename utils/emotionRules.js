@@ -1,27 +1,31 @@
+// utils/emotionRules.js
+
+// 1) Emotion -> RGB string for Blender CSV ("RGB(r,g,b)")
 const sphereColorRules = {
-  Fericire: "#FFDF00",
-  Entuziasm: "#FF4500",
-  Calm: "#87CEFA",
-  Mulțumire: "#90EE90",
-  Iubire: "#FF1493",
-  Speranță: "#ADD8E6",
-  Seninătate: "#E0FFFF",
-  Curiozitate: "#E6E6FA",
-  Empatie: "#DA70D6",
-  Surpriză: "#FF69B4",
-  Neutralitate: "#A9A9A9",
-  Tristețe: "#4682B4",
-  Frică: "#2F4F4F",
-  Furie: "#B22222",
-  Invidie: "#556B2F",
-  Singurătate: "#483D8B",
-  Vinovăție: "#800000",
-  Anxietate: "#CD5C5C",
-  Amărăciune: "#FF8C00",
-  Nostalgie: "#F0E68C",
-  Confuzie: "#808000",
+  Fericire: "RGB(255,223,0)",
+  Entuziasm: "RGB(255,69,0)",
+  Calm: "RGB(135,206,250)",
+  "Mulțumire": "RGB(144,238,144)",
+  Iubire: "RGB(255,20,147)",
+  "Speranță": "RGB(173,216,230)",
+  "Seninătate": "RGB(224,255,255)",
+  Curiozitate: "RGB(230,230,250)",
+  Empatie: "RGB(218,112,214)",
+  "Surpriză": "RGB(255,105,180)",
+  Neutralitate: "RGB(169,169,169)",
+  "Tristețe": "RGB(70,130,180)",
+  "Frică": "RGB(47,79,79)",
+  Furie: "RGB(178,34,34)",
+  Invidie: "RGB(85,107,47)",
+  "Singurătate": "RGB(72,61,139)",
+  "Vinovăție": "RGB(128,0,0)",
+  Anxietate: "RGB(205,92,92)",
+  "Amărăciune": "RGB(255,140,0)",
+  Nostalgie: "RGB(240,230,140)",
+  Confuzie: "RGB(128,128,0)",
 };
 
+// 2) Intensity label -> radius
 const radiusRules = {
   "Super tare": 15,
   Tare: 10,
@@ -31,19 +35,51 @@ const radiusRules = {
   Deloc: 0,
 };
 
-const goodCategory = [
-  "Fericire", "Entuziasm", "Calm", "Mulțumire", "Iubire",
-  "Speranță", "Seninătate", "Curiozitate", "Empatie", "Surpriză",
-];
+// 3) Valence groups -> connection type
+const POSITIVE = new Set([
+  "Fericire",
+  "Entuziasm",
+  "Calm",
+  "Mulțumire",
+  "Iubire",
+  "Speranță",
+  "Seninătate",
+  "Curiozitate",
+  "Empatie",
+  "Surpriză",
+]);
 
-const badCategory = [
-  "Tristețe", "Frică", "Furie", "Invidie", "Singurătate",
-  "Vinovăție", "Anxietate", "Amărăciune", "Nostalgie", "Confuzie",
-];
+const NEGATIVE = new Set([
+  "Tristețe",
+  "Frică",
+  "Furie",
+  "Invidie",
+  "Singurătate",
+  "Vinovăție",
+  "Anxietate",
+  "Amărăciune",
+  "Nostalgie",
+  "Confuzie",
+]);
+
+function connectionTypeFromEmotion(emotion) {
+  if (POSITIVE.has(emotion)) return ">";
+  if (NEGATIVE.has(emotion)) return "<";
+  return "="; // Neutral or unknown
+}
+
+function colorFromEmotion(emotion) {
+  return sphereColorRules[emotion] || "RGB(200,200,200)";
+}
+
+function radiusFromIntensity(label) {
+  return radiusRules[label] ?? 1;
+}
 
 module.exports = {
   sphereColorRules,
   radiusRules,
-  goodCategory,
-  badCategory,
+  connectionTypeFromEmotion,
+  colorFromEmotion,
+  radiusFromIntensity,
 };

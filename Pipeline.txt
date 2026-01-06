@@ -1,0 +1,7 @@
+PHASE 1 — Sphere Creation
+PHASE 2 — Coloring & Radius Assignment
+PHASE 3 — Sphere Replacement
+PHASE 4 — Emotional Interpretation (Section 5 engine)
+PHASE 5 — Connection Generation
+PHASE 6 — Cleanup (remove temporary spheres)
+PHASE 7 — Export to Excel
